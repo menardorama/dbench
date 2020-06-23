@@ -1,8 +1,8 @@
 FROM dmonakhov/alpine-fio
 
 MAINTAINER Thomas Menard <menardorama@gmail.com>
-RUN addgroup --gid 1200 fio && \
-    useradd --uid 1200 --gid 1200 fio
+RUN addgroup -g 1200 fio && \
+    adduser --uid 1200 --ingroup fio fio
 
 
 VOLUME /tmp
