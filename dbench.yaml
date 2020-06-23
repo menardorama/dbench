@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
       - name: dbench
-        image: logdna/dbench:latest
+        image: menardorama/dbench:latest
         imagePullPolicy: Always
         env:
           - name: DBENCH_MOUNTPOINT
@@ -41,6 +41,11 @@ spec:
         - name: dbench-pv
           mountPath: /data
       restartPolicy: Never
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1200
+        runAsGroup: 1200
+        fsGroup: 1200
       volumes:
       - name: dbench-pv
         persistentVolumeClaim:
