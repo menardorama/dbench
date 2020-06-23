@@ -2,7 +2,7 @@ FROM dmonakhov/alpine-fio
 
 MAINTAINER Thomas Menard <menardorama@gmail.com>
 RUN addgroup -g 1200 fio && \
-    adduser --uid 1200 --ingroup fio fio
+    adduser -u 1200 -G fio fio
 
 
 VOLUME /tmp
